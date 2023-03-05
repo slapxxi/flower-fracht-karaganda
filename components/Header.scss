@@ -1,0 +1,58 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .header {
+    @apply isolate flex items-center gap-8 bg-navy-900 py-3 px-4 md:gap-2 md:px-7 lg:gap-8 lg:px-wrap xl:py-5;
+  }
+
+  .header__navLink {
+    @apply block py-2 text-xs font-medium uppercase text-white hover:text-slate-400;
+  }
+
+  .header__navLink--active {
+    @apply relative text-blue-500 hover:text-blue-500;
+
+    &::after {
+      @apply absolute left-1/2 top-full h-3 w-px bg-blue-500;
+      content: '';
+    }
+  }
+
+  .header__logo {
+    @apply w-20 md:w-[127px];
+  }
+
+  .menu__buttonTop {
+    fill: currentColor;
+    animation: open-top 0.2s forwards;
+  }
+
+  .menu__buttonCenter {
+    fill: currentColor;
+    animation: open-center 0.1s forwards;
+  }
+
+  .menu__buttonBottom {
+    fill: currentColor;
+    animation: open-bottom 0.2s forwards;
+  }
+
+  @keyframes open-top {
+    100% {
+      transform: translate(4px, 1px) rotate(45deg);
+    }
+  }
+
+  @keyframes open-center {
+    100% {
+      transform: translate(100%);
+    }
+  }
+
+  @keyframes open-bottom {
+    100% {
+      transform: translate(-13px, 4px) rotate(-45deg);
+    }
+  }
+}
